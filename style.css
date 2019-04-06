@@ -1,33 +1,123 @@
+/* Fonts */
+@font-face
+{
+    font-family: 'getSchwifty';
+    src: url('./font/getSchwifty.ttf');
+    src: url('./fonts/getSchwifty.ttf') format('truetype'),
+
+}
+
 body {
     margin: 0;
     height: 100vh;
+    background-color: black;
 }
+
+.loaderAnimation {
+    animation: fade-out 0.7s ease-in-out both;
+}
+
+.loader {
+    height:100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    background-image: url('./images/getSchwifty/loaderbackground.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: 0;
+}
+
+.enter {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+button.loadGameBtn {
+    height: 15vh;
+    width: 25vh;
+    background-color: rgba(255, 255, 255, 0);
+    outline: none; 
+    border: none;
+    top: 40%;
+    font-size: 50px;
+    color: green;
+    position: absolute;
+    transform: translateX(-50%);
+    color: rgb(12, 196, 237);
+    font-size: 9vh;
+    font-family: 'getSchwifty';
+    font-weight: bold;
+    -webkit-text-stroke-width: .25px;
+    -webkit-text-stroke-color: rgb(0, 255, 8);
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;    
+}
+
+
+
+.gameScreen {
+    animation: fade-in 0.5s ease-in-out both;
+    display: none;
+    
+}
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+      display: none;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
 /* Header Portion */
 
 .headerSection {
-    height: 20%;
+    height: 24%;
     font-size: 0;
     border-bottom: 2px solid white;
-    
+
 }
 .logo, .titleDisplay {
-    font-size: 1rem;
+    font-size: 0rem;
     display: inline-block;
 }
 .logo {
-    height: 100%;
-    width: 12%;
-    background-color: salmon;
+    height: 24vh;
+    width: 16%;
     float:left;
+    position: relative;
+}
+img.logoImg {
+    /* padding-top: 10px; */
+    top: 20px;
+    left: 23px;
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    /* background-size: 100% 100%; */
 }
 
 .titleDisplay {
-    width: 88%;
+    width: 84%;
     background-color: black;
+
 } 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     .logo {
         display: none;
     }
@@ -38,26 +128,57 @@ body {
 
 .gameTitle {
     margin: 0;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     text-align: center;
-    height: 10vh;
-    padding-top: 4vh;
-    color: white;
-    font-size: 6vh;
+    height: 11vh;
+    padding-top: 7vh;
+    color: rgb(12, 196, 237);
+    font-size: 7vh;
+    font-family: 'getSchwifty';
+    font-weight: bold;
+    -webkit-text-stroke-width: .25px;
+    -webkit-text-stroke-color: rgb(0, 255, 8);
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@media screen and (max-width: 350px) {
+    .gameTitle {
+        font-size: 4vh;
+    }
+}
+
+/* Title Glowing Animation */
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px rgb(0, 255, 8), 0 0 20px rgb(0, 255, 8);
+    }
+    to {
+      text-shadow: 0 0 20px rgb(24, 255, 32), 0 0 30px rgb(25, 255, 33)
+  }
+}
+
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px rgb(0, 255, 8), 0 0 20px rgb(0, 255, 8);
+    }
+    to {
+      text-shadow: 0 0 20px rgb(24, 255, 32), 0 0 30px rgb(25, 255, 33)
+  }
 }
 
 /* Navbar Section */
 .navSection {
     margin: 0;
     height: 6vh;
-    color: white;
+    color: black;
     background-color: black;
     text-align:center;
 }
 
 .navButton {
     outline: none;
-    /* border: 1px solid black; */
     height: 100%;
     width: 10vh;
     text-align: center;
@@ -71,41 +192,106 @@ body {
     background-color: lightslategrey
 }
 
-/* Game Portion */
+button.active {
+    background-color: white;
+    color: black;
+}
 
+@media screen and (max-width: 725px) {
+    .navButton {
+        display: none;
+    }
+
+}
+
+/* Modal */
+#statsModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    width: 300px;
+    height: 500px;
+    right: 40%;
+    font-size: 0;
+    text-align: center;
+    border-radius: 10px;
+    
+}
+
+.modal-info, .modal-body {
+    font-size: 1rem;
+}
+.modal-info {
+    height: 10%;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    float: right;
+    font-size: 30px;
+    font-weight: bolder;
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+.modal-title {
+    height: 100%;
+    padding-top: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.modal-body {
+    width: 100%;
+
+}
+
+.attempts, .totalGames, .accuracy {
+    margin: 10%;
+}
+
+button.resetModal {
+    height: 50px;
+    width: 100px;
+}
+
+/* Game Portion */
 .gameContainer {
-    min-height: 80vh;
-    /* background-color: rgb(224, 243, 255); */
+    min-height: 75vh;
     font-size: 0;
 
 }
 
-.statisticsDisplay, .gameDisplay {
+/* .statisticsDisplay,  */
+.gameDisplay {
     font-size: 1rem;
     display: inline-block;
-    min-height: 80vh;
+    min-height: 75vh;
 }
 
-.statisticsDisplay {
+/* .statisticsDisplay {
     width: 15%;
     background-color: black;
-    color: white;
-    /* float: left; */
+    color: black;
     vertical-align: top;
-    /* border-right: 2px solid  */
-    /* opacity: .5; */
-}
+
+} */
 
 .gameDisplay {
-    width: 85%;
+    width: 100%;
     font-size: 0;
     background-color: black;
-    background-image: url('./images/getShwifty/backgroundImage.png');
+    background-image: url('./images/getSchwifty/backgroundImage.png');
     background-size: 100% 100%;
     text-align: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) {
     .statisticsDisplay {
         display: none;
     }
@@ -114,19 +300,43 @@ body {
     }
 }
 
-.cardContainer {
-    font-size: 1rem;
-    /* border: 1px solid black;     */
+/* .cardContainer {
     width: 24vh;
-    height: 26vh;
+    height: 25vh;
     display: inline-block;
-    /* background-color: aqua; */
     position: relative;
 }
+.cardContainer .cardImg {
+    top: 45px;
+    width: 15vh;
+    height: 19vh;
+    position: relative;
+    display: inline-block;
+} */
+
+
+.cardContainer {
+    /* top: 25px; */
+    font-size: 1rem;
+    width: 26vh;
+    height: 24.5vh;
+    display: inline-block;
+    position: relative;
+}
+
+/* .easyCardContainer {
+    font-size: 1rem;
+    width: 26vh;
+    height: 26vh;
+    display: inline-block;
+    position: relative;
+
+} */
+
 .cards {
-    height: 80%;
-    width: 65%;
-    top: 13%;
+    height: 85%;
+    width: 60%;
+    top: 12%;
     left: 25%;
     background-color: black;
     display: inline-block;
@@ -135,12 +345,10 @@ body {
     border-radius: 5px;
 }
 
-.cardImg {
+.cardImg{
     height: 100%;
     width: 100%;
     position: initial;
-    /* background-size: contain;
-    background-repeat: no-repeat */
 }
 
 /* Shake Function */
@@ -149,6 +357,10 @@ body {
     animation-iteration-count: infinite;
 }
 
+.cardContainer:hover .front{
+    animation: shake 0.7s;
+    animation-iteration-count: infinite;
+}
 
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -162,8 +374,4 @@ body {
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-/* .front {
-    display: none;
-} */
+} 

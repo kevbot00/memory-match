@@ -5,176 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rick and Morty Matching Game</title>
-    <link rel="stylesheet" href="style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
     <!-- Bootstrap CDN -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
 </head>
 <body>
+    <div class='loader'>
+        <div class="enter">
+            <button class="loadGameBtn">Enter</button>
+        </div>
+        
+    </div>
+    <div class='gameScreen'>
     <div class="headerSection">
         <div class="logo">
-            <img class='cardImg' src="./images/getShwifty/download (2).jpeg" alt="">
+            <img class='logoImg' src='./images/getSchwifty/background.png' alt="">
         </div>
         <div class="titleDisplay">
-            <h1 class='gameTitle'>Matching Game</h1>
+            <h1 class='gameTitle'>Rick and Morty Matching Game</h1>
             <div class="navSection">
-                <button class="easyMode navButton">Easy Mode</button>
-                <button class="hardMode navButton">Hard Mode</button>
+                <button class="easy mode navButton">Easy Mode</button>
+                <button class="hard mode navButton active">Hard Mode</button>
                 <button class="reset navButton">Reset</button>
+                
+                <!-- Modal Trigger -->
+                <button id='statsBtn' class="stats navButton">Stats</button>
+
             </div>
         </div>
     </div>
     <div class="gameContainer">
-        <div class="statisticsDisplay">Statistics Display</div>
-        <div class="gameDisplay">
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic1.jpg" alt="">
-                        </div>
-                        <div class=" back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
+        <!-- Modal -->
+        <div id="statsModal" class="modal">
+            <div class="modal-info">
+                <div class="close">&times;</div>
+                <h1 class='modal-title'>Statistics</h1>
             </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic2.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
+            <div class="modal-body">
+                <div class='attempts'>
+                    <h2>Attempts</h2>
+                    <h2 class='attemptNum'>0</h2>
+                </div>
+                <div class="totalGames">
+                        <h2>Games Played</h2>
+                        <h2 class='totalNum'>0</h2>
+                </div>
+                <div class="accuracy">
+                        <h2>Accuracy %</h2>
+                        <h2 class='accNum'>0</h2>
+                </div>
+                <button class='playAgainBtn resetModal'>Play Again?</button>
+                <button class="resetStat resetModal">Reset Stats</button>
             </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic3.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic4.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic5.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic6.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic7.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic8.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic9.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic1.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic2.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic3.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic4.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic5.jpg" alt="">
-                        </div>
-                        <div class="back cards">
-                            <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                        </div>
-            </div>
-            <div class="cardContainer">
-                <div class="front cards">
-                        <img class='cardImg' src="./images/getShwifty/pic6.jpg" alt="">
-                    </div>
-                    <div class="back cards">
-                        <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                    </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                            <img class='cardImg' src="./images/getShwifty/pic7.jpg" alt="">
-                    </div>
-                    <div class="back cards">
-                        <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                    </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                        <img class='cardImg' src="./images/getShwifty/pic8.jpg" alt="">
-                    </div>
-                    <div class="back cards">
-                        <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                    </div>
-            </div>
-            <div class="cardContainer">
-                    <div class="front cards">
-                        <img class='cardImg' src="./images/getShwifty/pic9.jpg" alt="">
-                    </div>
-                    <div class="back cards">
-                        <img class='cardImg' src="./images/getShwifty/pic10.jpg" alt="">
-                    </div>
-            </div>
-            
         </div>
+        <div class="statisticsDisplay"></div>
+        <div class="gameDisplay"></div>
+    </div>
     </div>
     
 </body>
