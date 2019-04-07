@@ -1,12 +1,11 @@
 $(document).ready(function(){
     initializeApp();
+    playSound();
 });
 
 function initializeApp(){
     $('.loadGameBtn').on('click', enterGame);
     setMode();
-    // generateRandomCards(images);
-    // clickedCard();
     openModalBtn();
     $('.reset').on('click', resetGameBtn);
     $('.resetStat').on('click', resetAllStats);
@@ -14,7 +13,7 @@ function initializeApp(){
     $('button.mode').on('click', setMode);
 }
 
-var images = ['pic1.jpg' ,'pic2.jpg','pic3.jpg','pic4.jpg','pic5.jpg','pic6.jpg','pic7.jpg','pic8.jpg','pic9.jpg'];
+var images = ['pic1.jpg' ,'pic2.jpg','pic3.jpg','pic11.jpg','pic5.jpg','pic6.jpg','pic7.jpg','pic8.jpg','pic9.jpg'];
 
 function setMode(){
     var easyBtn = $('button.easy');
@@ -24,13 +23,13 @@ function setMode(){
         hardBtn.attr('disabled', true);
         easyBtn.attr('disabled', false);
         resetCurrentStat();
-        return generateRandomCards(images);
+        generateRandomCards(images);
     } else if (easyBtn.attr('class').includes('active')){
-        var easyImg = images.slice(0,5);
+        var easyImg = images.slice(0,6);
         easyBtn.attr('disabled', true);
         hardBtn.attr('disabled', false);
         resetCurrentStat();
-        return generateRandomCards(easyImg);      
+        generateRandomCards(easyImg);      
     }
 }
 
@@ -92,7 +91,8 @@ function clickedCard(arr) {
                     pickedTwoCards = false;
                     matchCount++;
                     attempt++;
-                    attemptNum.text(attempt);    
+                    attemptNum.text(attempt);   
+                    // playSound() 
                     gameOverModal(arr);                    
                 }
                 firstCard = null;
@@ -116,9 +116,6 @@ function checkCardMatch(firstPick, secondPick){
 
 //Reset Game Button
 function resetGameBtn(){
-    // if (matchCount !== images.length){
-    //     // gamesPlayed++;
-    // }
     resetCurrentStat();
     setMode();
 }
@@ -141,10 +138,22 @@ function openModalBtn(){
     var close = $('.close');
     modalBtn.on('click', function(){
         modal.css('display', 'block');
+        $('.gameScreen').addClass('openModal');
     });
-    close.on('click', function(){
-        modal.css('display', 'none');
+    close.on('click', closeModal);
+
+    $(document).on('keydown', function(evt){
+        evt.preventDefault();
+        evt.stopPropagation();
+        closeModal();
+
     });
+}
+
+function closeModal(){
+    $('#statsModal').css('display', 'none');
+    $('.gameScreen').removeClass('openModal');
+    
 }
 
 function gameOverModal(arr){
@@ -167,11 +176,20 @@ function resetAllStats(){
 //loading page 
 function enterGame(){
     $('.loader').addClass('loaderAnimation');
+    playSound('enter.mp3');
     setTimeout(function(){
         $('.loader').css('display', 'none');
-    },550);
-    
-    
+    },600);
     $('.gameScreen').css('display','block');
     
+}
+
+//Audio
+function playSound(sound) {
+    var audio = new Audio('./sounds/' + sound);
+    audio.volume = 0.1;
+    audio.play();
+    setTimeout(function(){
+        audio.pause();
+    },900);
 }
