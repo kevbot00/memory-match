@@ -15,7 +15,7 @@ body {
 }
 
 .loaderAnimation {
-    animation: fade-out 0.7s ease-in-out both;
+    animation: fade-out 0.9s ease-in-out both;
 }
 
 .loader {
@@ -49,7 +49,7 @@ body {
     -webkit-animation-timing-function: linear;
     animation-name: flyby;
     animation-duration: 3s;
-    animation-delay: 2s;
+    animation-delay: 1.5s;
     animation-timing-function: linear;
 }
 
@@ -93,7 +93,7 @@ button.loadGameBtn {
 }
 
 .gameScreen {
-    animation: fade-in 0.5s ease-in-out both;
+    animation: fade-in 0.9s ease-in-out both;
     display: none;
 }
 

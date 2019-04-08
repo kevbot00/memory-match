@@ -1,6 +1,5 @@
 $(document).ready(function(){
     initializeApp();
-    playSound();
 });
 
 function initializeApp(){
@@ -13,31 +12,33 @@ function initializeApp(){
     $('button.mode').on('click', setMode);
 }
 
-var images = ['pic1.jpg' ,'pic2.jpg','pic3.jpg','pic11.jpg','pic5.jpg','pic6.jpg','pic7.jpg','pic8.jpg','pic9.jpg'];
+var images = ['pic1.jpg' ,'pic2.jpg','pic3.jpg','pic11.jpg','pic5.jpg','pic6.jpg','pic7.jpg','pic8.jpg','pic9.jpg', 'pic4.jpg','pic12.jpg','pic13.jpg','pic14.jpg','pic15.jpg', 'pic16.jpg'];
 
 function setMode(){
+    var randomIndex = Math.floor(Math.random() * 7);
+    var easyRandomIndex = Math.floor(Math.random() * 10);
     var easyBtn = $('button.easy');
     var hardBtn = $('button.hard');
     $(this).addClass('active').siblings().removeClass('active');
     if (hardBtn.attr('class').includes('active')){
+        var hardImg = images.slice(randomIndex, randomIndex + 9);
         hardBtn.attr('disabled', true);
         easyBtn.attr('disabled', false);
-        resetCurrentStat();
-        generateRandomCards(images);
+        generateRandomCards(hardImg);
     } else if (easyBtn.attr('class').includes('active')){
-        var easyImg = images.slice(0,6);
+        var easyImg = images.slice(easyRandomIndex, easyRandomIndex + 6);      
         easyBtn.attr('disabled', true);
         hardBtn.attr('disabled', false);
-        resetCurrentStat();
         generateRandomCards(easyImg);      
     }
 }
 
 
 function generateRandomCards(imgArray){
+    resetCurrentStat();
     $('.cardContainer').remove();
     var splicedCards = [];
-       //copy array and merge together;
+    //copy array and merge together;
     var copiedArray = imgArray;
     var mergedArray = copiedArray.concat(imgArray);
     for (var i = 0; i < mergedArray.length + 1;i++){
@@ -93,7 +94,6 @@ function clickedCard(arr) {
                     matchCount++;
                     attempt++;
                     attemptNum.text(attempt);   
-                    // playSound() 
                     gameOverModal(arr);                    
                 }
                 firstCard = null;
@@ -119,6 +119,7 @@ function checkCardMatch(firstPick, secondPick){
 function resetGameBtn(){
     resetCurrentStat();
     setMode();
+    closeModal();
 }
 
 function resetCurrentStat(){
@@ -129,7 +130,6 @@ function resetCurrentStat(){
     $('.cardContainer').remove();
     $('.totalNum').text(gamesPlayed);
     $('.attemptNum').text(attempt);
-    // $('.accNum').text(0);
 }
 
 // Modal Function
@@ -142,12 +142,10 @@ function openModalBtn(){
         $('.gameScreen').addClass('openModal');
     });
     close.on('click', closeModal);
-
     $(document).on('keydown', function(evt){
         evt.preventDefault();
         evt.stopPropagation();
         closeModal();
-
     });
 }
 
@@ -161,6 +159,8 @@ function gameOverModal(arr){
     if (matchCount === arr.length){
         gamesPlayed++;
         var accuracyDisplay = Math.floor((gamesPlayed / attempt) * 100);
+        playSound('gameFinish.wav', 1900);
+        $('.gameScreen').addClass('openModal');
         $('#statsModal').css('display','block');
         $('.accNum').text(accuracyDisplay + "%");
     }
@@ -177,20 +177,19 @@ function resetAllStats(){
 //loading page 
 function enterGame(){
     $('.loader').addClass('loaderAnimation');
-    playSound('enter.mp3');
+    playSound('enter.mp3', 1400);
     setTimeout(function(){
         $('.loader').css('display', 'none');
-    },600);
+    },900);
     $('.gameScreen').css('display','block');
-    
 }
 
 //Audio
-function playSound(sound) {
+function playSound(sound, duration) {
     var audio = new Audio('./sounds/' + sound);
     audio.volume = 0.1;
     audio.play();
     setTimeout(function(){
         audio.pause();
-    },900);
+    },duration);
 }
