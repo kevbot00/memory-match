@@ -11,10 +11,11 @@ body {
     margin: 0;
     height: 100vh;
     background-color: black;
+    /* opacity: .3 */
 }
 
 .loaderAnimation {
-    animation: fade-out 0.7s ease-in-out both;
+    animation: fade-out 0.9s ease-in-out both;
 }
 
 .loader {
@@ -29,6 +30,38 @@ body {
     margin: 0;
 }
 
+.loading {
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    text-align: left;
+}
+
+.spaceship {
+    height: 75%;
+    width: 8%;
+    position: relative;
+    left: -10%;
+    -webkit-animation-name: flyby;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-timing-function: linear;
+    animation-name: flyby;
+    animation-duration: 3s;
+    animation-delay: 1.5s;
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes flyby {
+    from {left: -10%;}
+    to {left: 110%;}
+}
+@keyframes flyby {
+    from {left: -5%;}
+    to {left: 110%;}
+}
+
 .enter {
     width: 100%;
     height: 100%;
@@ -41,13 +74,15 @@ button.loadGameBtn {
     background-color: rgba(255, 255, 255, 0);
     outline: none; 
     border: none;
-    top: 40%;
+    top: 35%;
     font-size: 50px;
-    color: green;
     position: absolute;
     transform: translateX(-50%);
-    color: rgb(12, 196, 237);
     font-size: 9vh;
+}
+
+.portal {
+    color: rgb(12, 196, 237);
     font-family: 'getSchwifty';
     font-weight: bold;
     -webkit-text-stroke-width: .25px;
@@ -57,12 +92,14 @@ button.loadGameBtn {
     animation: glow 1s ease-in-out infinite alternate;    
 }
 
-
-
 .gameScreen {
-    animation: fade-in 0.5s ease-in-out both;
+    animation: fade-in 0.9s ease-in-out both;
     display: none;
-    
+}
+
+.openModal {
+    filter: blur(5px) grayscale(50%);
+    -webkit-filter: blur(5px) grayscale(50%);
 }
 
 @keyframes fade-in {
@@ -86,7 +123,7 @@ button.loadGameBtn {
 /* Header Portion */
 
 .headerSection {
-    height: 24%;
+    height: 21%;
     font-size: 0;
     border-bottom: 2px solid white;
 
@@ -96,19 +133,17 @@ button.loadGameBtn {
     display: inline-block;
 }
 .logo {
-    height: 24vh;
+    height: 23vh;
     width: 16%;
     float:left;
     position: relative;
 }
 img.logoImg {
-    /* padding-top: 10px; */
     top: 20px;
     left: 23px;
     height: 80%;
     width: 80%;
     position: absolute;
-    /* background-size: 100% 100%; */
 }
 
 .titleDisplay {
@@ -128,24 +163,20 @@ img.logoImg {
 
 .gameTitle {
     margin: 0;
-    /* vertical-align: middle; */
     text-align: center;
-    height: 11vh;
-    padding-top: 7vh;
-    color: rgb(12, 196, 237);
-    font-size: 7vh;
-    font-family: 'getSchwifty';
-    font-weight: bold;
-    -webkit-text-stroke-width: .25px;
-    -webkit-text-stroke-color: rgb(0, 255, 8);
-    -webkit-animation: glow 1s ease-in-out infinite alternate;
-    -moz-animation: glow 1s ease-in-out infinite alternate;
-    animation: glow 1s ease-in-out infinite alternate;
+    height: 14vh;
+    padding-top: 9vh;
+    font-size: 8vh;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 833px) {
     .gameTitle {
-        font-size: 4vh;
+        font-size: 7vh;
+    }
+}
+@media screen and (max-width: 750px) {
+    .gameTitle {
+        font-size: 6vh;
     }
 }
 
@@ -169,40 +200,43 @@ img.logoImg {
 }
 
 /* Navbar Section */
+
+@media screen and (max-width: 400px) {
+    .navButton {
+        display: none;
+    }
+
+}
+
 .navSection {
     margin: 0;
     height: 6vh;
     color: black;
     background-color: black;
     text-align:center;
+    border-bottom: 2px solid white;
+    /* position: relative; */
 }
 
 .navButton {
     outline: none;
     height: 100%;
-    width: 10vh;
+    width: 13vh;
     text-align: center;
     color: white;
     background-color: black;
-    margin: 0 4vh;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    font-size: 14px;
+    font-weight: bolder;
 }
+
 .navButton:hover {
     background-color: lightslategrey
 }
 
-button.active {
-    background-color: white;
-    color: black;
+div.navSection button.active {
+    background-color: lightslategray;
 }
 
-@media screen and (max-width: 725px) {
-    .navButton {
-        display: none;
-    }
-
-}
 
 /* Modal */
 #statsModal {
@@ -212,20 +246,40 @@ button.active {
     background-color: white;
     width: 300px;
     height: 500px;
-    right: 40%;
+    left: 50%;
+    top: 20%;
     font-size: 0;
     text-align: center;
-    border-radius: 10px;
-    
+    border-radius: 15px;
+    border: 2px solid rgb(26, 208, 26);
+    transform: translateX(-50%);
+    background-image: url('./images/getSchwifty/statsBack.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .modal-info, .modal-body {
     font-size: 1rem;
 }
+
+.modal-body {
+    width: 100%;
+}
+
 .modal-info {
     height: 10%;
     text-align: center;
     position: relative;
+}
+
+.modal-title {
+    height: 90%;
+    font-size: 40px;
+    font-family: 'getSchwifty';
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
+    padding-top: 15px;  
 }
 
 .close {
@@ -233,56 +287,53 @@ button.active {
     font-size: 30px;
     font-weight: bolder;
     width: 20%;
-    height: 100%;
+    height: 95%;
     position: absolute;
     right: 0;
     z-index: 1;
-}
-
-.modal-title {
-    height: 100%;
-    padding-top: 10px;
-    text-align: center;
-    border: 1px solid black;
-}
-
-.modal-body {
-    width: 100%;
-
+    padding-top: 5px;
+    color: white;
 }
 
 .attempts, .totalGames, .accuracy {
     margin: 10%;
+    color: white;
+    font-size: 18px;
+    font-family: 'getSchwifty';
+}
+
+.schwifty {
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: .25px;
+    -webkit-text-stroke-color: rgba(0, 255, 8, 0.646);
 }
 
 button.resetModal {
     height: 50px;
     width: 100px;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 90%;
+    font-weight: bolder;
 }
 
 /* Game Portion */
+@media screen and (max-width: 1300px) {
+    .gameDisplay {
+        width:100%;
+    }
+}
+
 .gameContainer {
     min-height: 75vh;
     font-size: 0;
 
 }
 
-/* .statisticsDisplay,  */
 .gameDisplay {
     font-size: 1rem;
     display: inline-block;
-    min-height: 75vh;
-}
-
-/* .statisticsDisplay {
-    width: 15%;
-    background-color: black;
-    color: black;
-    vertical-align: top;
-
-} */
-
-.gameDisplay {
+    min-height: 70vh;
     width: 100%;
     font-size: 0;
     background-color: black;
@@ -291,52 +342,27 @@ button.resetModal {
     text-align: center;
 }
 
-@media screen and (max-width: 1300px) {
-    .statisticsDisplay {
-        display: none;
-    }
-    .gameDisplay {
-        width:100%;
-    }
-}
-
-/* .cardContainer {
-    width: 24vh;
-    height: 25vh;
-    display: inline-block;
-    position: relative;
-}
-.cardContainer .cardImg {
-    top: 45px;
-    width: 15vh;
-    height: 19vh;
-    position: relative;
-    display: inline-block;
-} */
-
-
 .cardContainer {
-    /* top: 25px; */
     font-size: 1rem;
-    width: 26vh;
-    height: 24.5vh;
+    width: 26.5vh;
+    height: 23vh;
     display: inline-block;
     position: relative;
 }
 
-/* .easyCardContainer {
+.easyCardContainer {
     font-size: 1rem;
     width: 26vh;
     height: 26vh;
     display: inline-block;
     position: relative;
 
-} */
+}
 
 .cards {
     height: 85%;
     width: 60%;
-    top: 12%;
+    top: 11%;
     left: 25%;
     background-color: black;
     display: inline-block;
