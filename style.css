@@ -12,6 +12,7 @@ body {
   background-image: url('./v1.5/images/backgroundImage.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-color: black;
 }
 
 /* Loading Screen */
@@ -78,6 +79,7 @@ button.load-game-btn {
   outline: none; 
   border: none;
   top: 35%;
+  left: 50%;
   font-size: 50px;
   position: absolute;
   transform: translateX(-50%);
@@ -517,7 +519,7 @@ div .reset-game, .stats-btn {
     width: 250px;
     height: 450px;
     top: 6%;
-    margin-top: 5vh;
+    margin-top: 1vh;
   }
   .modal-title {
     font-size: 25px;
