@@ -18,9 +18,20 @@
     <script src="./components/main.js"></script>
 
   <body>
+    <!-- Loader Screen -->
+    <div class='loader'>
+        <div class="loading">
+            <img class='spaceship' src="./images/large.png" alt="">
+        </div>
+        <div class="enter">
+            <button class="load-game-btn portal">Enter</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
     <div class="container-fluid px-0 game-screen">
       <div class="header-section col-md-12">
-        <div class="logo-section header "></div>
+        <div class="logo-section header"></div>
         <div class="title-section header portal">Rick and Morty Matching Game</div>
       </div>
         <ul class="nav justify-content-center nav-pills nav-section">
@@ -56,8 +67,8 @@
           <h2>Accuracy</h2>
           <h2 class='accuracy-num'>0<span>%</span></h2>
         </div>
-        <button type="button" class='reset-game btn btn-dark'>Play Again?</button>
-        <button type="button" class="reset-stats btn btn-dark">Reset Stats</button>
+        <button type="button" class='reset-game modal-reset btn btn-dark'>New Game</button>
+        <button type="button" class="reset-stats modal-reset btn btn-dark">Reset Stats</button>
       </div>
     </div>
 

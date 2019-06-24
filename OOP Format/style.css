@@ -14,8 +14,115 @@ body {
   background-repeat: no-repeat;
 }
 
+/* Loading Screen */
+
+
+.loader-animation {
+  animation: fade-out 0.9s ease-in-out both;
+}
+
+.loader {
+  height:100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  background-image: url('./images/loaderbackground.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin: 0;
+}
+
+.loading {
+  height: 10%;
+  width: 100%;
+  position: absolute;
+  top: 10%;
+  text-align: left;
+}
+
+.spaceship {
+  height: 75%;
+  width: 8%;
+  position: relative;
+  left: -10%;
+  -webkit-animation-name: flyby;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-timing-function: linear;
+  animation-name: flyby;
+  animation-duration: 3s;
+  animation-delay: 1.5s;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes flyby {
+  from {left: -10%;}
+  to {left: 110%;}
+}
+@keyframes flyby {
+  from {left: -5%;}
+  to {left: 110%;}
+}
+
+.enter {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+button.load-game-btn {
+  height: 15vh;
+  width: 25vh;
+  background-color: rgba(255, 255, 255, 0);
+  outline: none; 
+  border: none;
+  top: 35%;
+  font-size: 50px;
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 9vh;
+}
+
+.portal {
+  color: rgb(12, 196, 237);
+  font-family: 'getSchwifty';
+  font-weight: bold;
+  -webkit-text-stroke-width: .25px;
+  -webkit-text-stroke-color: rgb(0, 255, 8);
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;    
+}
+
+.game-screen {
+  animation: fade-in 0.9s ease-in-out both;
+  display: none;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    display: none;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Game screen */
+
 .game-screen {
   font-size: 1rem;
+  display: none;
 }
 
 .header-section {
@@ -33,7 +140,7 @@ body {
 }
 
 .logo-section {
-  width: 12%;
+  width: 13%;
   height: 100%;
   background-image: url('./images/background.png');
   background-size: contain;
@@ -45,8 +152,8 @@ body {
   font-family: 'getSchwifty';
   text-align: center;
   height: 100%;
-  width: 88%;
-  font-size: 8vh;
+  width: 87%;
+  font-size: 7vh;
   position: absolute;
   right: 0;
   padding-top: 5vh;
@@ -84,14 +191,21 @@ body {
 }
 
 .nav-section {
-  margin-top: 3vh;
-  min-height: 4vh;
+  margin-top: 2vh;
+  min-height: 5vh;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
 }
 
 .nav-section div {
   height: 100%;
+}
+
+div .reset-game, .stats-btn {
+  -webkit-text-stroke-color: rgb(0, 255, 8);
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;   
 }
 
 .active-mode {
@@ -116,9 +230,11 @@ body {
 
 .cards img {
   position: absolute;
-  width: 70%;
+  width: 65%;
   height: 90%;
   right: 10%;
+  border: 1px solid white;
+  border-radius: 5%;
 }
 
 .front-card {
@@ -150,9 +266,14 @@ body {
   border-radius: 15px;
   border: 2px solid rgb(26, 208, 26);
   transform: translateX(-50%);
-  background-image: url('../images/getSchwifty/statsBack.jpg');
+  background-image: url('./images/statsBack.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  -webkit-text-stroke-width: .25px;
+  -webkit-text-stroke-color: rgb(0, 255, 8);
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;    
 }
 
 .modal-info, .modal-body {
@@ -205,6 +326,15 @@ body {
   -webkit-text-stroke-color: rgba(0, 255, 8, 0.646);
 }
 
+.modal-reset {
+  border: 1px solid white;
+  -webkit-text-stroke-color: rgb(0, 255, 8);
+  -webkit-animation: glow 2s ease-in-out infinite alternate;
+  -moz-animation: glow 2s ease-in-out infinite alternate;
+  animation: glow 2s ease-in-out infinite alternate;    
+
+}
+
 /* Media Screens */
 
 @media only screen and ( max-width: 1450px ){
@@ -212,22 +342,68 @@ body {
     padding: 2% 6%;
   }
 }
-@media only screen and ( max-width: 1150px ){
+@media only screen and ( max-width: 1160px ){
   .game-section {
     padding: 2% 4%;
   }
 }
 
+@media only screen and ( max-width: 1024px ) and ( max-height: 1366px ){
+  .logo-section {
+    display: none;
+  }
+  .title-section {
+    font-size: 6vh;
+    width: 100%;
+    padding-top: 1vh; 
+  }  
+  .game-section {
+    padding-top: 5vh
+  }
+  .card-container {
+    margin-top: 2vh;
+    height: 16%;
+    width: 19%;
+  }
+}
+
 @media only screen and ( max-width: 1000px ){
+  .logo-section {
+    display: none;
+  }
+  .title-section {
+    font-size: 7vh;
+    width: 100%;
+  }
   .game-section {
     padding: 2% 2%;
   }
   .card-container {
+    margin-top: 0;
     height: 30%;
     width: 15%;
   }
 }
+@media only screen and ( max-width: 895px ){
+  .title-section {
+    font-size: 6.5vh;
+    padding-top: 6vh;
+  }
+}
+@media only screen and ( max-width: 830px ){
+  .logo-section {
+    display: none;
+  }
+  .title-section {
+    font-size: 6vh;
+
+  }
+}
+
 @media only screen and ( max-width: 800px ){
+  .title-section {
+    font-size: 6vh;
+  }
   .game-section {
     padding: 2% 2%;
   }
@@ -236,29 +412,42 @@ body {
     width: 16%;
   }
 }
-
-@media only screen and ( max-width: 770px ) and ( max-height: 1025px ){
+@media only screen and ( max-width: 768px ) and ( max-height: 1024px) {
+  .title-section {
+    font-size: 5.5vh;
+  }
   .game-section {
     padding: 2% 2%;
   }
   .card-container {
-    height: 28%;
-    width: 16%;
+    margin-top: 4vh;
+    height: 18%;
+    width: 19%;
+  }
+  .cards img {
+    width: 80%;
+    height: 90%;
   }
 }
 
 @media only screen and ( max-width: 700px ){
+  .title-section {
+    font-size: 5vh;
+  }
   .game-section {
     padding: 2% 0;
   }
   .card-container {
+    margin-top: 0;
     height: 22%;
     width: 18%;
   }
 }
 @media only screen and ( max-width: 550px ){
+  .title-section {
+    padding-top: 4vh;
+  }
   .game-section {
-    height: 79vh;
     padding: 2% 0;
   }
   .card-container {
@@ -267,26 +456,79 @@ body {
   }
 }
 @media only screen and ( max-width: 420px ){
+  .title-section {
+    padding-top: 3vh;
+  }
+  .nav-section {
+    margin-bottom: 3vh;
+  }
+  .game-section {
+    height: 72vh;
+  }
   .card-container {
     height: 19%;
-    width: 24%;
+    width: 22%;
   }
-  .card img {
-    position: absolute;
-    width: 80%;
+  .cards img {
+    width: 70%;
     height: 90%;
-    right: 9.5%;
+  }
+  #stats-modal {
+    top: 10%;
   }
 }
 @media only screen and ( max-width: 380px ){
-  .card-container {
-    height: 19%;
-    width: 25%;
+  .game-section {
+    height: 72vh;
   }
-  .card img {
+  .card-container {
+    width: 23%;
+  }
+  .cards img {
     position: absolute;
-    width: 100%;
+    width: 85%;
     height: 90%;
     right: 5%;
+  }
+  #stats-modal {
+    top: 9%;
+  }
+}
+
+@media ( max-width: 320px ){
+  .game-section {
+    height: 70vh;
+  }
+  .nav-section {
+    margin-bottom: 2vh;
+  }
+  .game-section{
+    height: 71vh;
+  } 
+  .card-container {
+    height: 20%;
+  }
+  .cards img {
+    width: 75%;
+    height: 90%;
+  }
+  #stats-modal {
+    width: 275px;
+    height: 485px;
+    top: 8%;
+  }
+}
+
+@media ( max-width: 300px ){
+  .header-section {
+    display: none;
+  }
+  .nav-section {
+    margin-top: 0;
+    border-top: none;
+    margin-bottom: 4vh;
+  }
+  .game-section {
+    height: 91vh;
   }
 }

@@ -2,7 +2,7 @@ class Deck {
   constructor( clickCallback ){
     this.clickCallback = clickCallback;
     // EASY MODE 6 CARDS / HARD MODE 9 CARDS
-    this.mode = 1
+    this.mode = null;
     this.cardArray = [];
   }
 
@@ -12,6 +12,7 @@ class Deck {
 
   set cardLength( mode ){
     this.mode = mode;
+    this.cardArray = [];
   }
 
   generateDeck(){
