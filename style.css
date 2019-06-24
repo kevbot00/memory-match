@@ -73,14 +73,12 @@ body {
 }
 
 button.load-game-btn {
-  height: 15vh;
-  width: 25vh;
   background-color: rgba(255, 255, 255, 0);
   outline: none; 
   border: none;
   top: 35%;
   left: 50%;
-  font-size: 50px;
+  font-size: 36px;
   position: absolute;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);

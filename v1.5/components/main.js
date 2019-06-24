@@ -16,7 +16,7 @@ function enterGame(){
     openModalBtn();
     $('.loader').css('display', 'none');   
     $('.game-screen').css('display','block');
-  },500);
+  },300);
   
 
 }
