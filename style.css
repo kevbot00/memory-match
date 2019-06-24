@@ -2,14 +2,14 @@
 @font-face
 {
     font-family: 'getSchwifty';
-    src: url('./font/getSchwifty.ttf');
-    src: url('./fonts/getSchwifty.ttf') format('truetype'),
+    src: url('./v1.5/font/getSchwifty.ttf');
+    src: url('./v1.5/fonts/getSchwifty.ttf') format('truetype'),
 }
 
 body {
   font-size: 0;
   margin: 0;
-  background-image: url('./images/backgroundImage.png');
+  background-image: url('./v1.5/images/backgroundImage.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -26,7 +26,7 @@ body {
   width: 100vw;
   background-color: black;
   color: white;
-  background-image: url('./images/loaderbackground.jpg');
+  background-image: url('./v1.5/images/loaderbackground.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   text-align: center;
@@ -142,7 +142,7 @@ button.load-game-btn {
 .logo-section {
   width: 13%;
   height: 100%;
-  background-image: url('./images/background.png');
+  background-image: url('./v1.5/images/background.png');
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -266,7 +266,7 @@ div .reset-game, .stats-btn {
   border-radius: 15px;
   border: 2px solid rgb(26, 208, 26);
   transform: translateX(-50%);
-  background-image: url('./images/statsBack.jpg');
+  background-image: url('./v1.5/images/statsBack.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   -webkit-text-stroke-width: .25px;

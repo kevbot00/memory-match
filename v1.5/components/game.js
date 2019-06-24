@@ -106,7 +106,7 @@ class Game {
   }
 
   playSound(sound, duration) {
-    var audio = new Audio('./sounds/' + sound);
+    var audio = new Audio('./v1.5/sounds/' + sound);
     audio.volume = 0.1;
     audio.play();
     setTimeout(function(){
