@@ -3,7 +3,7 @@ $(document).ready( startApp );
 
 let game;
 function startApp(){
-  game = new Game();
+  game = new Game( closeModal );
   $('.load-game-btn').on('click', enterGame );
 }
 

@@ -1,5 +1,6 @@
 class Game {
-  constructor(){
+  constructor( closeModal ){
+    this.closeModal = closeModal
     this.matchedCount = 0;
     this.firstPick = undefined;
     this.secondPick = undefined;
@@ -43,13 +44,16 @@ class Game {
       this.updateStats();
       $(evt.data.card.cardContainer[0].firstChild).addClass( 'back-card-clicked');
       $(evt.data.card.cardContainer[0].lastChild).removeClass( 'front-card');
-      if ( !this.firstPick ){
-        return this.firstPick = evt.data;
-      }
-      this.secondPick = evt.data;
       !this.currentGameAttempt && this.gamesPlayed++;
       this.currentGameAttempt++;
       this.totalGameAttempt++;
+      if ( !this.firstPick ){
+        this.updateStats();
+        return this.firstPick = evt.data;
+      }
+      this.secondPick = evt.data;
+      
+      
       setTimeout( this.isMatching, 500);
     }
   }
@@ -69,7 +73,6 @@ class Game {
   }
 
   gameOver(){
-    this.gamesPlayed++;
     this.playSound('gameFinish.wav', 1900);
     $('.game-screen').addClass('open-modal');
     $('#stats-modal').css('display', 'block');
@@ -88,25 +91,28 @@ class Game {
 
   newGame(){
     this.modeHandler();
+    this.closeModal();
   }
 
   resetGame(){
     this.firstPick = undefined;
     this.secondPick = undefined;
     this.currentGameAttempt = 0;
+    this.matchedCount = 0;
     $('.game-section').empty();
     this.updateStats();
   }
 
   resetStat(){
     this.gamesPlayed = 0;
-    this.attempt = 0;
+    this.currentGameAttempt = 0;
+    this.totalGameAttempt = 0;
     this.matchedCount = 0;
     this.modeHandler();
   }
 
   playSound(sound, duration) {
-    var audio = new Audio('./v1.5/sounds/' + sound);
+    const audio = new Audio('./v1.5/sounds/' + sound);
     audio.volume = 0.1;
     audio.play();
     setTimeout(function(){

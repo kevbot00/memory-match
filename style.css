@@ -49,7 +49,7 @@ body {
   left: -10%;
   -webkit-animation-name: flyby;
   -webkit-animation-duration: 3s;
-  -webkit-animation-delay: 2s;
+  -webkit-animation-delay: 1.5s;
   -webkit-animation-timing-function: linear;
   animation-name: flyby;
   animation-duration: 3s;
@@ -317,7 +317,7 @@ div .reset-game, .stats-btn {
 .attempt-stat, .total-game-stat, .accuracy-stat {
   margin: 10%;
   color: white;
-  font-size: 18px;
+  font-size: 22px;
   font-family: 'getSchwifty';
 }
 
@@ -328,7 +328,7 @@ div .reset-game, .stats-btn {
 }
 
 .modal-reset {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   -webkit-text-stroke-color: rgb(0, 255, 8);
   -webkit-animation: glow 2s ease-in-out infinite alternate;
   -moz-animation: glow 2s ease-in-out infinite alternate;
@@ -432,6 +432,14 @@ div .reset-game, .stats-btn {
 }
 
 @media only screen and ( max-width: 700px ){
+  .loader {
+    background-size: 150% 100%;
+    background-position: 50%
+  }
+  .spaceship {
+    width: 20%;
+    left: -20%;
+  }
   .title-section {
     font-size: 5vh;
   }
@@ -445,6 +453,10 @@ div .reset-game, .stats-btn {
   }
 }
 @media only screen and ( max-width: 550px ){
+  .loader {
+    background-size: 175% 100%;
+    background-position: 50%
+  }
   .title-section {
     padding-top: 4vh;
   }
@@ -457,6 +469,10 @@ div .reset-game, .stats-btn {
   }
 }
 @media only screen and ( max-width: 420px ){
+  .loader {
+    background-size: 200% 100%;
+    background-position: 50%
+  }
   .title-section {
     padding-top: 3vh;
   }
@@ -479,6 +495,10 @@ div .reset-game, .stats-btn {
   }
 }
 @media only screen and ( max-width: 380px ){
+  .loader {
+    background-size: 225% 100%;
+    background-position: 50%
+  }
   .game-section {
     height: 72vh;
   }
@@ -525,7 +545,7 @@ div .reset-game, .stats-btn {
   }
   .attempt-stat h2 , .total-game-stat h2 , .accuracy-stat h2 {
     margin: 8%;
-    font-size: 18px;
+    font-size: 20px;
   }
   .modal-reset {
     width: 120px;
