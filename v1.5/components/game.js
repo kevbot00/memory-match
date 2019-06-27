@@ -34,6 +34,9 @@ class Game {
   }
 
   modeHandler( gameMode = this.currentMode ){
+    if ( this.matchedCount != (this.deck.cardLength / 2 ) && this.currentGameAttempt ){
+      this.playSound( 'disqualified.wav', 1900 );
+    }
     this.resetGame();
     this.deck.cardLength = gameMode;
     this.currentMode = gameMode;
@@ -90,6 +93,7 @@ class Game {
   }
 
   newGame(){
+    this.playSound('reset_game.wav', 1900);
     this.modeHandler();
     this.closeModal();
   }
