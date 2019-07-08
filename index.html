@@ -1,71 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rick and Morty Matching Game</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>Rick And Morty Memory Match</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./v1.5/components/card.js"></script>
+    <script src="./v1.5/components/deck.js"></script>
+    <script src="./v1.5/components/mode.js"></script>
+    <script src="./v1.5/components/game.js"></script>
+    <script src="./v1.5/components/main.js"></script>
+
+  <body>
+    <!-- Loader Screen -->
     <div class='loader'>
         <div class="loading">
-            <img class='spaceship' src="./images/getSchwifty/large.png" alt="">
+            <img class='spaceship' src="./v1.5/images/large.png" alt="">
         </div>
         <div class="enter">
-            <button class="loadGameBtn portal">Enter</button>
-        </div>
-
-    </div>
-    <div class='gameScreen'>
-    <div class="headerSection">
-        <div class="logo">
-            <img class='logoImg' src='./images/getSchwifty/background.png' alt="">
-        </div>
-        <div class="titleDisplay">
-            <h1 class='gameTitle portal'>Rick and Morty Matching Game</h1>
-
+            <button class="load-game-btn portal">Enter</button>
         </div>
     </div>
-    <div class="gameContainer">
-        <div class="navSection">
-                <button class="easy mode navButton">Easy Mode</button>
-                <button class="hard mode navButton active">Hard Mode</button>
-                <button class="reset navButton">Reset</button>
-                
-                <!-- Modal Trigger -->
-                <button id='statsBtn' class="stats navButton">Stats</button>
-            </div>
 
-        <div class="gameDisplay"></div>
-    </div>
+    <!-- Game Screen -->
+    <div class="container-fluid px-0 game-screen">
+      <div class="header-section col-md-12">
+        <div class="logo-section header"></div>
+        <div class="title-section header portal">Rick and Morty Matching Game</div>
+      </div>
+        <ul class="nav justify-content-center nav-pills nav-section">
+          <li class="nav-item">
+            <div class="nav-link  text-white easy mode reset-game">Easy</div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link text-white hard mode reset-game active active-mode">Hard</div>
+          </li>
+          <li class="nav-item">
+            <div class="nav-link text-white stats-btn">Statistic</div>
+          </li>
+        </ul>
+      <div class="game-section"></div>
     </div>
 
     <!-- Modal -->
-    <div id="statsModal" class="modal">
-            <div class="modal-info">
-                <div class="close">&times;</div>
-                <h1 class='modal-title schwifty'>Statistics</h1>
-            </div>
-            <div class="modal-body schwifty">
-                <div class='attempts'>
-                    <h2>Attempts</h2>
-                    <h2 class='attemptNum'>0</h2>
-                </div>
-                <div class="totalGames">
-                        <h2>Games Played</h2>
-                        <h2 class='totalNum'>0</h2>
-                </div>
-                <div class="accuracy">
-                        <h2>Accuracy</h2>
-                        <h2 class='accNum'>0</h2>
-                </div>
-                <button class='playAgainBtn resetModal'>Play Again?</button>
-                <button class="resetStat resetModal">Reset Stats</button>
-            </div>
+    <div id="stats-modal" class="modal">
+      <div class="modal-info">
+        <div class="close-btn">&times;</div>
+        <h1 class='modal-title schwifty'>Statistics</h1>
+      </div>
+      <div class="modal-body schwifty">
+        <div class='attempt-stat'>
+          <h2>Attempts</h2>
+          <h2 class='click-attempt-num'>0</h2>
         </div>
-    
-</body>
+        <div class="total-game-stat">
+          <h2>Games Played</h2>
+          <h2 class='total-game-num'>0</h2>
+        </div>
+        <div class="accuracy-stat">
+          <h2>Accuracy</h2>
+          <h2 class='accuracy-num'>0<span>%</span></h2>
+        </div>
+        <button type="button" class='reset-game modal-reset btn btn-dark border-white'>New Game</button>
+        <button type="button" class="reset-stats modal-reset btn btn-dark border-white">Reset Stats</button>
+      </div>
+    </div>
+
+  </body>
+
 </html>

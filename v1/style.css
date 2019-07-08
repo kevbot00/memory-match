@@ -1,0 +1,403 @@
+/* Fonts */
+@font-face
+{
+    font-family: 'getSchwifty';
+    src: url('./font/getSchwifty.ttf');
+    src: url('./fonts/getSchwifty.ttf') format('truetype'),
+
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: black;
+    /* opacity: .3 */
+}
+
+.loaderAnimation {
+    animation: fade-out 0.9s ease-in-out both;
+}
+
+.loader {
+    height:100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    background-image: url('./images/getSchwifty/loaderbackground.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: 0;
+}
+
+.loading {
+    height: 10%;
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    text-align: left;
+}
+
+.spaceship {
+    height: 75%;
+    width: 8%;
+    position: relative;
+    left: -10%;
+    -webkit-animation-name: flyby;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-timing-function: linear;
+    animation-name: flyby;
+    animation-duration: 3s;
+    animation-delay: 1.5s;
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes flyby {
+    from {left: -10%;}
+    to {left: 110%;}
+}
+@keyframes flyby {
+    from {left: -5%;}
+    to {left: 110%;}
+}
+
+.enter {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+button.loadGameBtn {
+    height: 15vh;
+    width: 25vh;
+    background-color: rgba(255, 255, 255, 0);
+    outline: none; 
+    border: none;
+    top: 35%;
+    font-size: 50px;
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 9vh;
+}
+
+.portal {
+    color: rgb(12, 196, 237);
+    font-family: 'getSchwifty';
+    font-weight: bold;
+    -webkit-text-stroke-width: .25px;
+    -webkit-text-stroke-color: rgb(0, 255, 8);
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;    
+}
+
+.gameScreen {
+    animation: fade-in 0.9s ease-in-out both;
+    display: none;
+}
+
+.openModal {
+    filter: blur(5px) grayscale(50%);
+    -webkit-filter: blur(5px) grayscale(50%);
+}
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+      display: none;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+/* Header Portion */
+
+.headerSection {
+    height: 21%;
+    font-size: 0;
+    border-bottom: 2px solid white;
+
+}
+.logo, .titleDisplay {
+    font-size: 0rem;
+    display: inline-block;
+}
+.logo {
+    height: 23vh;
+    width: 16%;
+    float:left;
+    position: relative;
+}
+img.logoImg {
+    top: 20px;
+    left: 23px;
+    height: 80%;
+    width: 80%;
+    position: absolute;
+}
+
+.titleDisplay {
+    width: 84%;
+    background-color: black;
+
+} 
+
+@media screen and (max-width: 1000px) {
+    .logo {
+        display: none;
+    }
+    .titleDisplay {
+        width:100%;
+    }
+}
+
+.gameTitle {
+    margin: 0;
+    text-align: center;
+    height: 14vh;
+    padding-top: 9vh;
+    font-size: 8vh;
+}
+
+@media screen and (max-width: 833px) {
+    .gameTitle {
+        font-size: 7vh;
+    }
+}
+@media screen and (max-width: 750px) {
+    .gameTitle {
+        font-size: 6vh;
+    }
+}
+
+/* Title Glowing Animation */
+@keyframes glow {
+    from {
+      text-shadow: 0 0 10px rgb(0, 255, 8), 0 0 20px rgb(0, 255, 8);
+    }
+    to {
+      text-shadow: 0 0 20px rgb(24, 255, 32), 0 0 30px rgb(25, 255, 33)
+  }
+}
+
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px rgb(0, 255, 8), 0 0 20px rgb(0, 255, 8);
+    }
+    to {
+      text-shadow: 0 0 20px rgb(24, 255, 32), 0 0 30px rgb(25, 255, 33)
+  }
+}
+
+/* Navbar Section */
+
+@media screen and (max-width: 400px) {
+    .navButton {
+        display: none;
+    }
+
+}
+
+.navSection {
+    margin: 0;
+    height: 6vh;
+    color: black;
+    background-color: black;
+    text-align:center;
+    border-bottom: 2px solid white;
+    /* position: relative; */
+}
+
+.navButton {
+    outline: none;
+    height: 100%;
+    width: 13vh;
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.navButton:hover {
+    background-color: lightslategrey
+}
+
+div.navSection button.active {
+    background-color: lightslategray;
+}
+
+
+/* Modal */
+#statsModal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    width: 300px;
+    height: 500px;
+    left: 50%;
+    top: 20%;
+    font-size: 0;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid rgb(26, 208, 26);
+    transform: translateX(-50%);
+    background-image: url('./images/getSchwifty/statsBack.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.modal-info, .modal-body {
+    font-size: 1rem;
+}
+
+.modal-body {
+    width: 100%;
+}
+
+.modal-info {
+    height: 10%;
+    text-align: center;
+    position: relative;
+}
+
+.modal-title {
+    height: 90%;
+    font-size: 40px;
+    font-family: 'getSchwifty';
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid black;
+    padding-top: 15px;  
+}
+
+.close {
+    float: right;
+    font-size: 30px;
+    font-weight: bolder;
+    width: 20%;
+    height: 95%;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    padding-top: 5px;
+    color: white;
+}
+
+.attempts, .totalGames, .accuracy {
+    margin: 10%;
+    color: white;
+    font-size: 18px;
+    font-family: 'getSchwifty';
+}
+
+.schwifty {
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: .25px;
+    -webkit-text-stroke-color: rgba(0, 255, 8, 0.646);
+}
+
+button.resetModal {
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-size: 90%;
+    font-weight: bolder;
+}
+
+/* Game Portion */
+@media screen and (max-width: 1300px) {
+    .gameDisplay {
+        width:100%;
+    }
+}
+
+.gameContainer {
+    min-height: 75vh;
+    font-size: 0;
+
+}
+
+.gameDisplay {
+    font-size: 1rem;
+    display: inline-block;
+    min-height: 70vh;
+    width: 100%;
+    font-size: 0;
+    background-color: black;
+    background-image: url('./images/getSchwifty/backgroundImage.png');
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.cardContainer {
+    font-size: 1rem;
+    width: 26.5vh;
+    height: 23vh;
+    display: inline-block;
+    position: relative;
+}
+
+.easyCardContainer {
+    font-size: 1rem;
+    width: 26vh;
+    height: 26vh;
+    display: inline-block;
+    position: relative;
+
+}
+
+.cards {
+    height: 85%;
+    width: 60%;
+    top: 11%;
+    left: 25%;
+    background-color: black;
+    display: inline-block;
+    position: absolute;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.cardImg{
+    height: 100%;
+    width: 100%;
+    position: initial;
+}
+
+/* Shake Function */
+.cardContainer:hover .back{
+    animation: shake 0.7s;
+    animation-iteration-count: infinite;
+}
+
+.cardContainer:hover .front{
+    animation: shake 0.7s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+} 

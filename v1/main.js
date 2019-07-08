@@ -110,7 +110,7 @@ function clickedCard(arr) {
 
 function checkCardMatch(firstPick, secondPick){
     if (firstPick === secondPick){
-       return true;      
+        return true;      
     }
     return false;
 }

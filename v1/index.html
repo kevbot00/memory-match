@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rick and Morty Matching Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class='loader'>
+        <div class="loading">
+            <img class='spaceship' src="./images/getSchwifty/large.png" alt="">
+        </div>
+        <div class="enter">
+            <button class="loadGameBtn portal">Enter</button>
+        </div>
+
+    </div>
+    <div class='gameScreen'>
+    <div class="headerSection">
+        <div class="logo">
+            <img class='logoImg' src='./images/getSchwifty/background.png' alt="">
+        </div>
+        <div class="titleDisplay">
+            <h1 class='gameTitle portal'>Rick and Morty Matching Game</h1>
+
+        </div>
+    </div>
+    <div class="gameContainer">
+        <div class="navSection">
+                <button class="easy mode navButton">Easy Mode</button>
+                <button class="hard mode navButton active">Hard Mode</button>
+                <button class="reset navButton">Reset</button>
+                
+                <!-- Modal Trigger -->
+                <button id='statsBtn' class="stats navButton">Stats</button>
+            </div>
+
+        <div class="gameDisplay"></div>
+    </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="statsModal" class="modal">
+            <div class="modal-info">
+                <div class="close">&times;</div>
+                <h1 class='modal-title schwifty'>Statistics</h1>
+            </div>
+            <div class="modal-body schwifty">
+                <div class='attempts'>
+                    <h2>Attempts</h2>
+                    <h2 class='attemptNum'>0</h2>
+                </div>
+                <div class="totalGames">
+                        <h2>Games Played</h2>
+                        <h2 class='totalNum'>0</h2>
+                </div>
+                <div class="accuracy">
+                        <h2>Accuracy</h2>
+                        <h2 class='accNum'>0</h2>
+                </div>
+                <button class='playAgainBtn resetModal'>Play Again?</button>
+                <button class="resetStat resetModal">Reset Stats</button>
+            </div>
+        </div>
+    
+</body>
+</html>
