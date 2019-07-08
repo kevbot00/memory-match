@@ -47,13 +47,13 @@ class Game {
       this.updateStats();
       $(evt.data.card.cardContainer[0].firstChild).addClass( 'back-card-clicked');
       $(evt.data.card.cardContainer[0].lastChild).removeClass( 'front-card');
-      !this.currentGameAttempt && this.gamesPlayed++;
-      this.currentGameAttempt++;
-      this.totalGameAttempt++;
       if ( !this.firstPick ){
         this.updateStats();
         return this.firstPick = evt.data;
       }
+      !this.currentGameAttempt && this.gamesPlayed++;
+      this.currentGameAttempt++;
+      this.totalGameAttempt++;
       this.secondPick = evt.data;
       
       
@@ -83,7 +83,8 @@ class Game {
   }
 
   updateStats(){
-    this.accuracy = Math.floor( (this.gamesPlayed / this.totalGameAttempt ) * 100);
+    console.log( 'updating');
+    this.accuracy = Math.floor( (this.matchedCount / this.currentGameAttempt ) * 100);
     if ( this.accuracy === Infinity || isNaN( this.accuracy )){
       this.accuracy = 0;
     }
