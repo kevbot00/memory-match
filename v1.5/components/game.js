@@ -77,7 +77,8 @@ class Game {
   }
 
   updateStats(){
-    this.accuracy = Math.floor( (this.gamesPlayed / this.totalGameAttempt ) * 100);
+    this.accuracy = Math.floor( (this.matchedCount / this.currentGameAttempt ) * 100);
+    console.log( this.accuracy );
     if ( this.accuracy === Infinity || isNaN( this.accuracy )){
       this.accuracy = 0;
     }
