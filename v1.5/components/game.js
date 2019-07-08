@@ -83,7 +83,6 @@ class Game {
   }
 
   updateStats(){
-    console.log( 'updating');
     this.accuracy = Math.floor( (this.matchedCount / this.currentGameAttempt ) * 100);
     if ( this.accuracy === Infinity || isNaN( this.accuracy )){
       this.accuracy = 0;
