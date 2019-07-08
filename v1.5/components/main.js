@@ -9,6 +9,7 @@ function startApp(){
 
 // Loading Page
 function enterGame(){
+  $('.load-game-btn').off('click', enterGame);
   $('.loader').addClass('loader-animation');
   game.playSound('enter.mp3', 1400);
   setTimeout(function(){
