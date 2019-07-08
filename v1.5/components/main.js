@@ -24,14 +24,13 @@ function enterGame(){
 
 // Modal Function
 function openModalBtn(){
-  var modal = $('#stats-modal');
-  var statsBtn = $('.stats-btn');
-  var close = $('.close-btn');
+  const modal = $('#stats-modal');
+  const statsBtn = $('.stats-btn');
+  const close = $('.close-btn');
   statsBtn.on('click', function(){
     modal.css('display', 'block');
     $('.game-screen').addClass('open-modal');
-    $('.game-section').attr('pointer-events', 'none');
-    
+    $('.game-section').css('pointer-events', 'none');
 
   });
   close.on('click', closeModal);
