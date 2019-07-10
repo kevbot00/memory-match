@@ -42,5 +42,5 @@ function openModalBtn(){
 function closeModal(){
   $('#stats-modal').css('display', 'none');
   $('.game-screen').removeClass('open-modal');
-  $('.game-section').bind('click');
+  $('.game-section').css('pointer-events', 'auto');
 }
