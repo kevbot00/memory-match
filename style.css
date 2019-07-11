@@ -206,6 +206,8 @@ button.load-game-btn {
 
 .nav-link {
   cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 div .reset-game, .stats-btn {
@@ -343,7 +345,8 @@ div .reset-game, .stats-btn {
 }
 
 /* Shake Function */
-.card-container:hover .back{
+.back-card:hover .back{
+  cursor: pointer;
   animation: shake 0.7s;
   animation-iteration-count: infinite;
 }
@@ -455,7 +458,51 @@ div .reset-game, .stats-btn {
   .title-section {
     font-size: 6vh;
   }
+}
 
+@media only screen and (min-width: 812px) and ( max-width: 823px ) and (min-height: 375px) and ( max-height: 411px) {
+  .title-section {
+    font-size: 6.5vh;
+    padding-top: 6vh;
+  }
+  .card-container {
+    height: 28%;
+    width: 15%;
+  }
+  .cards img {
+    width: 55%;
+    height: 90%;
+  }
+  #stats-modal {
+    padding-top: 5%;
+    width: 350px;
+    height: 340px;
+    top: 4%;
+    margin-top: 1vh;
+  }
+  #stats-modal {
+    padding: 0;
+  }
+  .modal-title {
+    font-size: 25px;
+  }
+  .modal-body {
+    margin-top: 3%;
+  }
+
+  div.attempt-stat, div.total-game-stat, div.accuracy-stat {
+    margin: 2%
+  }
+
+  .attempt-stat h2 , .total-game-stat h2 , .accuracy-stat h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .modal-reset {
+    width: 120px;
+    margin-top: 5px;
+  }
 }
 
 @media only screen and ( max-width: 800px ){
@@ -512,6 +559,52 @@ div .reset-game, .stats-btn {
   }
 }
 
+@media only screen and (min-width: 731px) and ( max-width: 736px ) and (min-height: 411px) and ( max-height: 414px) {
+  .title-section {
+    padding-top: 5vh;
+    font-size: 6vh;
+  }
+  .card-container {
+    margin-top: 0;
+    height: 30%;
+    width: 15%;
+  }
+  .cards img {
+    width: 60%;
+    height: 90%;
+  }
+  #stats-modal {
+    padding-top: 5%;
+    width: 550px;
+    height: 390px;
+    top: 4%;
+    margin-top: 1vh;
+  }
+  #stats-modal {
+    padding: 0;
+  }
+  .modal-title {
+    font-size: 25px;
+  }
+  .modal-body {
+    margin-top: 5%;
+  }
+
+  div.attempt-stat, div.total-game-stat, div.accuracy-stat {
+    margin: 5%
+  }
+
+  .attempt-stat h2 , .total-game-stat h2 , .accuracy-stat h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .modal-reset {
+    width: 120px;
+    margin-top: 5px;
+  }
+}
+
 @media only screen and ( max-width: 710px ){
   .loader {
     background-size: 150% 100%;
@@ -534,6 +627,115 @@ div .reset-game, .stats-btn {
     width: 18%;
   }
 }
+
+@media only screen and (min-width: 667px) and ( max-width: 667px ) and (min-height: 375px) and ( max-height: 375px) {
+  .title-section {
+    padding-top: 5vh;
+    font-size: 6vh;
+  }
+  .card-container {
+    margin-top: 0;
+    height: 30%;
+    width: 15%;
+  }
+  .cards img {
+    width: 60%;
+    height: 90%;
+  }
+  #stats-modal {
+    padding-top: 5%;
+    width: 500px;
+    height: 340px;
+    top: 4%;
+    margin-top: 1vh;
+  }
+  #stats-modal {
+    padding: 0;
+  }
+  .modal-title {
+    font-size: 25px;
+  }
+  .modal-body {
+    margin-top: 3%;
+  }
+
+  div.attempt-stat, div.total-game-stat, div.accuracy-stat {
+    margin: 2%
+  }
+
+  .attempt-stat h2 , .total-game-stat h2 , .accuracy-stat h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .modal-reset {
+    width: 120px;
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (min-width: 640px) and ( max-width: 640px ) and (min-height: 360px) and ( max-height: 360px) {
+  .title-section {
+    padding-top: 5vh;
+    font-size: 6vh;
+  }
+  .card-container {
+    margin-top: 0;
+    height: 30%;
+    width: 15%;
+  }
+  .cards img {
+    width: 60%;
+    height: 90%;
+  }
+}
+
+@media only screen and (min-width: 568px) and ( max-width: 568px ) and (min-height: 320px) and ( max-height: 320px) {
+  .title-section {
+    padding-top: 5vh;
+    font-size: 6vh;
+  }
+  .card-container {
+    margin-top: 0;
+    height: 30%;
+    width: 15%;
+  }
+  .cards img {
+    width: 60%;
+    height: 90%;
+  }
+  #stats-modal {
+    padding-top: 5%;
+    width: 450px;
+    height: 300px;
+    top: 4%;
+    margin-top: 1vh;
+  }
+  #stats-modal {
+    padding: 0;
+  }
+  .modal-title {
+    font-size: 25px;
+  }
+  .modal-body {
+    margin-top: 3%;
+  }
+
+  div.attempt-stat, div.total-game-stat, div.accuracy-stat {
+    margin: 2%
+  }
+
+  .attempt-stat h2 , .total-game-stat h2 , .accuracy-stat h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .modal-reset {
+    width: 120px;
+    margin-top: 5px;
+  }
+}
+
 @media only screen and ( max-width: 550px ){
   .loader {
     background-size: 175% 100%;
