@@ -42,7 +42,9 @@ class Game {
     this.currentMode = gameMode;
     this.deck.render();
   }
+
   clickHandler( evt ){
+
     if ( !this.firstPick || !this.secondPick ){
       this.updateStats();
       $(evt.data.card.cardContainer[0].firstChild).addClass( 'back-card-clicked');
@@ -55,8 +57,6 @@ class Game {
       this.currentGameAttempt++;
       this.totalGameAttempt++;
       this.secondPick = evt.data;
-      
-      
       setTimeout( this.isMatching, 500);
     }
   }
@@ -69,7 +69,8 @@ class Game {
       $(this.secondPick.card.cardContainer[0].lastChild).addClass('front-card');
     } else {
       this.matchedCount++;
-      (this.matchedCount === (this.deck.cardLength / 2) ) && this.gameOver();
+      if (this.matchedCount === (this.deck.cardLength / 2) ) return this.gameOver();
+      this.playSound('my_man.wav', 1000, 1);
     }
     this.firstPick = this.secondPick = undefined;
     this.updateStats();
@@ -77,6 +78,11 @@ class Game {
 
   gameOver(){
     this.playSound('gameFinish.wav', 1900);
+    $('.modal-title').text( 'Good Job');
+    $('.attempt-stat-title').text('Attempt')
+    $('.click-attempt-num').text( game.currentGameAttempt );
+    $('.total-game-stat-title').text('Games Played')
+    $('.total-game-num').text( game.gamesPlayed );
     $('.game-screen').addClass('open-modal');
     $('#stats-modal').css('display', 'block');
     this.updateStats();
@@ -115,9 +121,9 @@ class Game {
     this.modeHandler();
   }
 
-  playSound(sound, duration) {
+  playSound(sound, duration, volume) {
     const audio = new Audio('./v1.5/sounds/' + sound);
-    audio.volume = 0.1;
+    audio.volume = volume || 0.1;
     audio.play();
     setTimeout(function(){
         audio.pause();
