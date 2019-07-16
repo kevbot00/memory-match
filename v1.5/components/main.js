@@ -13,8 +13,7 @@ function enterGame(){
   $('.load-game-btn').off('click', enterGame);
   $('.loader').addClass('loader-animation');
   game.playSound('enter.mp3', 1400);
-  setTimeout(function(){
-    
+  setTimeout( () => {
     openModalBtn();
     $('.loader').css('display', 'none');   
     $('.game-screen').css('display','block');
@@ -28,6 +27,15 @@ function openModalBtn(){
   const statsBtn = $('.stats-btn');
   const close = $('.close-btn');
   statsBtn.on('click', function(){
+    $('.modal-title').text( 'Statistics')
+    $('.attempt-stat-title').text('Total Attempt')
+    $('.click-attempt-num').text( game.totalGameAttempt );
+    $('.total-game-stat-title').text('Total Game')
+    $('.total-game-num').text( game.gamesPlayed );
+    if ( game.gamesPlayed && game.totalGameAttempt ){
+      const accuracy = (game.currentGameAttempt / game.totalGameAttempt) * 100
+      $('.accuracy-num').text( Math.floor(accuracy) + "%" );
+    }
     modal.css('display', 'block');
     $('.game-screen').addClass('open-modal');
     $('.game-section').css('pointer-events', 'none');
