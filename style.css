@@ -45,9 +45,9 @@ body {
 
 .spaceship {
   height: 75%;
-  width: 10%;
+  width: 15%;
   position: relative;
-  left: -10%;
+  left: -15%;
   -webkit-animation-name: flyby;
   -webkit-animation-duration: 3s;
   -webkit-animation-delay: 1.5s;
@@ -96,6 +96,20 @@ button.load-game-btn {
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;    
+}
+
+.warning {
+  /* background-color: rgba(255, 255, 255, 0); */
+  outline: none; 
+  border: none;
+  top: 50%;
+  left: 50%;
+  font-size: 15px !important;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-size: 9vh;
+  cursor: pointer;
 }
 
 .game-screen {
