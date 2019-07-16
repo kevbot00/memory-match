@@ -33,6 +33,7 @@ body {
   background-repeat: no-repeat;
   text-align: center;
   margin: 0;
+  
 }
 
 .loading {
@@ -41,11 +42,12 @@ body {
   position: absolute;
   top: 10%;
   text-align: left;
+  overflow: hidden;
 }
 
 .spaceship {
-  height: 75%;
-  width: 15%;
+  height: 70%;
+  width: 10%;
   position: relative;
   left: -15%;
   -webkit-animation-name: flyby;
