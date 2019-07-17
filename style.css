@@ -38,7 +38,6 @@ body {
 }
 
 .spaceship {
-  /* overflow: hidden; */
   width: 10%;
   position: absolute;
   top: 10%;
