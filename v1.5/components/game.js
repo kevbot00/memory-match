@@ -7,6 +7,7 @@ class Game {
     this.gamesPlayed = 0;
     this.currentGameAttempt = 0;
     this.totalGameAttempt = 0;
+    this.totalAvailableMatch = 0;
     this.accuracy = 0;
     this.currentMode = null;
     this.clickHandler = this.clickHandler.bind( this );
@@ -44,7 +45,6 @@ class Game {
   }
 
   clickHandler( evt ){
-
     if ( !this.firstPick || !this.secondPick ){
       this.updateStats();
       $(evt.data.card.cardContainer[0].firstChild).addClass( 'back-card-clicked');
@@ -53,7 +53,10 @@ class Game {
         this.updateStats();
         return this.firstPick = evt.data;
       }
-      !this.currentGameAttempt && this.gamesPlayed++;
+      if ( !this.currentGameAttempt ){
+        this.totalAvailableMatch += this.currentMode;
+        this.gamesPlayed++;
+      } 
       this.currentGameAttempt++;
       this.totalGameAttempt++;
       this.secondPick = evt.data;
@@ -79,7 +82,7 @@ class Game {
   gameOver(){
     this.playSound('gameFinish.wav', 1900);
     $('.modal-title').text( 'Good Job');
-    $('.attempt-stat-title').text('Attempt')
+    $('.attempt-stat-title').text('Attempts')
     $('.click-attempt-num').text( game.currentGameAttempt );
     $('.total-game-stat-title').text('Games Played')
     $('.total-game-num').text( game.gamesPlayed );

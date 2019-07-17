@@ -28,12 +28,12 @@ function openModalBtn(){
   const close = $('.close-btn');
   statsBtn.on('click', function(){
     $('.modal-title').text( 'Statistics')
-    $('.attempt-stat-title').text('Total Attempt')
+    $('.attempt-stat-title').text('Total Attempts')
     $('.click-attempt-num').text( game.totalGameAttempt );
-    $('.total-game-stat-title').text('Total Game')
+    $('.total-game-stat-title').text('Total Games')
     $('.total-game-num').text( game.gamesPlayed );
     if ( game.gamesPlayed && game.totalGameAttempt ){
-      const accuracy = (game.currentGameAttempt / game.totalGameAttempt) * 100
+      const accuracy = (game.totalAvailableMatch/game.totalGameAttempt) * 100
       $('.accuracy-num').text( Math.floor(accuracy) + "%" );
     }
     modal.css('display', 'block');
