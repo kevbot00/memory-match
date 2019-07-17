@@ -36,19 +36,11 @@ body {
   
 }
 
-.loading {
-  height: 10%;
-  width: 100%;
+.spaceship {
+  overflow: hidden;
+  width: 10%;
   position: absolute;
   top: 10%;
-  text-align: left;
-  overflow: hidden;
-}
-
-.spaceship {
-  height: 70%;
-  width: 10%;
-  position: relative;
   left: -15%;
   -webkit-animation-name: flyby;
   -webkit-animation-duration: 3s;
@@ -630,6 +622,7 @@ div .reset-game, .stats-btn {
   }
   .spaceship {
     left: -20%;
+    width: 20%;
   }
   .title-section {
     padding-top: 5vh;

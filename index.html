@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rick And Morty Memory Match</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
     <script src="./v1.5/components/card.js"></script>
     <script src="./v1.5/components/deck.js"></script>
     <script src="./v1.5/components/mode.js"></script>
@@ -20,13 +25,11 @@
   <body>
     <!-- Loader Screen -->
     <div class='loader'>
-        <div class="loading">
-            <img class='spaceship' src="./v1.5/images/large.png" alt="">
-        </div>
-        <div class="enter">
-            <button class="load-game-btn portal">Enter</button>
-            <label class="warning">Warning! Sounds will be played during the game.</label>
-        </div>
+      <img class='spaceship' src="./v1.5/images/large.png" alt="">
+      <div class="enter">
+        <button class="load-game-btn portal">Enter</button>
+        <label class="warning">Warning! Sounds will be played during the game.</label>
+      </div>
     </div>
 
     <!-- Game Screen -->
@@ -35,17 +38,17 @@
         <div class="logo-section header"></div>
         <div class="title-section header portal">Rick and Morty Matching Game</div>
       </div>
-        <ul class="nav justify-content-center nav-pills nav-section">
-          <li class="nav-item">
-            <div class="nav-link  text-white easy mode reset-game">Easy</div>
-          </li>
-          <li class="nav-item">
-            <div class="nav-link text-white hard mode reset-game active active-mode">Hard</div>
-          </li>
-          <li class="nav-item">
-            <div class="nav-link text-white stats-btn">View Stats</div>
-          </li>
-        </ul>
+      <ul class="nav justify-content-center nav-pills nav-section">
+        <li class="nav-item">
+          <div class="nav-link  text-white easy mode reset-game">Easy</div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link text-white hard mode reset-game active active-mode">Hard</div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link text-white stats-btn">View Stats</div>
+        </li>
+      </ul>
       <div class="game-section"></div>
     </div>
 
